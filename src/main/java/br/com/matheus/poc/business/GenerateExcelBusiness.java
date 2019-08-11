@@ -26,9 +26,6 @@ public class GenerateExcelBusiness {
 	@Autowired
 	private PersonJpaRepository personJpaRepository;
 	
-	@Autowired
-	private PersonEntitie personRepository;
-	
 	@Value("${excel.path}")
 	private String pathExcel;
 	
@@ -43,7 +40,6 @@ public class GenerateExcelBusiness {
 	}
 	
 	private void generateExcel(List<PersonEntitie> people) {
-		//TODO criar excel e gravar a partir da lista de pessoas que este metodo recebe
 		HSSFWorkbook workbook = new HSSFWorkbook();
         HSSFSheet sheetPerson = workbook.createSheet("Person");
         
@@ -71,7 +67,11 @@ public class GenerateExcelBusiness {
             cellStatus.setCellValue(person.getStatus().getValue());
         });
         
-        try {
+        saveFile(workbook);
+	}
+
+	private void saveFile(HSSFWorkbook workbook) {
+		try {
             FileOutputStream out = 
                     new FileOutputStream(new File(this.pathExcel));
             workbook.write(out);
