@@ -1,4 +1,4 @@
-package br.com.matheus.poc.repository;
+package br.com.matheus.poc.entitie;
 
 import java.util.stream.Stream;
 

@@ -1,4 +1,4 @@
-package br.com.matheus.poc.repository;
+package br.com.matheus.poc.entitie;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 @Entity
 @Table(name = "person")
-public class PersonRepository implements Serializable{
+public class PersonEntitie implements Serializable{
 	
 	private static final long serialVersionUID = 7781294828204665825L;
 
@@ -26,11 +26,11 @@ public class PersonRepository implements Serializable{
 	private LocalDate birthday;
 	private Status status;
 	
-	public PersonRepository() {
+	public PersonEntitie() {
 		super();
 	}
 
-	public PersonRepository(String name, 
+	public PersonEntitie(String name, 
 			String document, 
 			LocalDate birthday, 
 			Status status) {
